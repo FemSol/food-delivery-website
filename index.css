@@ -51,7 +51,86 @@ body {
 }
 
 #food-container {
-    background: coral;
+    background: whitesmoke;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: content-box;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background: whitesmoke;
+    z-index: 1;
+}
+
+#header .address {
+    font-size: 20px;
+}
+
+.your-address {
+    border: 1px solid indianred;
+    color: indianred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.add-box i {
+    font-size: 20px;
+}
+
+.util i,
+.user i {
+    font-size: 18px;
+    margin: 0 16px;
+    border: 1px solid crimson;
+    padding: 8px 16px;
+    color: crimson;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.util i :active {
+    color: white;
+    background: crimson;
+}
+
+.food-items {}
+
+#biryani,
+#chicken,
+#paneer,
+#vegetable,
+#chinese,
+#south-indian {
+    margin-top: 40px;
+}
+
+#paneer #item-card,
+#vegetable #item-card {
+    background: rgb(218, 253, 18);
+}
+
+#chinese #item-card,
+#south-indian #item-card {
+    background: rgb(221, 243, 243);
+}
+
+#category-name,
+.item-menu {}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 #cart {
