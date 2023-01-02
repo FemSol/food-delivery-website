@@ -39,7 +39,7 @@
                     <i class="fa fa-cart-plus" id="cart-plus">0 Items</i>
                 </div>
             </div>
-            <div id="food-items">
+            <div id="food-items" class="food-items">
                 <div id="biryani">
                     <p id="category-name">Biryani</p>
                     <div id="item-card">
@@ -418,12 +418,36 @@
                     </div>
                 </div>
             </div>
+            <div id="cart-page" class="cart-toggle">
+                <p id="cart-title">Cart Items</p>
+                <p id="m-total-amount">Total Amount : PKR 100/-</p>
+                <table>
+                    <thead>
+                        <td>Item</td>
+                        <td>Name</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                    </thead>
+                    <tbody id="table-body">
+                        <tr>
+                            <td><img src="/images/chicken/Chicken-do-Pyaza.jpg" alt="img"></td>
+                            <td>Chicken Pyaza</td>
+                            <td>
+                                <button class="decrease-item">-</button>
+                                <span>1</span>
+                                <button class="increase-item">+</button>
+                            </td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div id="cart">
             <div class="taste-header">
                 <div class="user">
-                    <i class="fa fa-usEr-circle">Account</i>
+                    <i class="fa fa-user-circle">Account</i>
                 </div>
             </div>
             <div id="category-list">
@@ -433,6 +457,42 @@
                     <img src="/images/chinese/chowmin.jpg" alt="list">
                     <a href="" class="list-name">Chinese </a>
                 </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+
+                <div class="list-card">
+                    <img src="/images/chinese/chowmin.jpg" alt="list">
+                    <a href="" class="list-name">Chinese </a>
+                </div>
+            </div>
+            <div id="checkout" class="cart-toggle">
+                <p id="total-item">Total Item : 5</p>
+                <p id="total-price">Total Price : PKR 500</p>
+                <p id="delievery">Free Delivery above PKR 400</p>
+                <button class="cart-btn">Checkout</button>
             </div>
         </div>
     </div>

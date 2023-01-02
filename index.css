@@ -100,7 +100,8 @@ body {
     cursor: pointer;
 }
 
-.util i :active {
+.util i :active,
+.user i:active {
     color: white;
     background: crimson;
 }
@@ -134,7 +135,7 @@ body {
 }
 
 #item-card {
-    width: 180px;
+    width: 190px;
     height: 220px;
     padding: 10px;
     margin: 10px;
@@ -200,5 +201,166 @@ body {
 }
 
 #cart {
-    background: lavender;
+    background: whitesmoke;
+    padding-left: 30px;
+    overflow-y: scroll;
+}
+
+.taste-header {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background: whitesmoke;
+}
+
+.item-menu {
+    margin: 0;
+    font-size: 30px;
+    margin-top: 40px;
+    color: indianred;
+    background: whitesmoke;
+}
+
+.border {
+    width: 80px;
+    height: 4px;
+    margin: 3px 0;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    background: coral;
+}
+
+.list-card {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+.list-card:hover {
+    background: rgb(255, 216, 222);
+}
+
+.list-card:hover img {
+    transition: 0.5s all ease-in-out;
+    transform: scale(1.2);
+}
+
+.list-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.list-name {
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(94, 43, 43)
+}
+
+#category-list {}
+
+.cart-toggle {
+    display: none;
+}
+
+#cart-page {
+    background: whitesmoke;
+    margin-right: 50px;
+    padding: 20px 30px;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+#cart-title {
+    font-size: 35px;
+    margin: 0;
+    color: indianred;
+}
+
+#cart-page table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#cart-page table thead td {
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+#m-total-amount {
+    display: none;
+}
+
+#cart-page table tbody td {
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+#cart-page table tbody button {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    background-color: lightcoral;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 3px 8px;
+}
+
+#cart-page table tbody img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+}
+
+#checkout {
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 5px;
+    background: white;
+    padding: 10px 20px;
+}
+
+#checkout p {
+    margin: 15px 0;
+    float: left;
+}
+
+#total-price,
+#total-item {
+    font-size: 25px;
+    color: indianred;
+}
+
+.cart-btn {
+    outline: none;
+    border: none;
+    background: crimson;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    bottom: 30px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.cart-btn:active {
+    color: crimson;
+    background: none;
+    border: 1px solid crimson;
+}
+
+#delievery {
+    font-size: 20px;
+    color: limegreen;
 }
