@@ -345,5 +345,31 @@ function cartItems() {
         tableRow.appendChild(rowData2);
         tableRow.appendChild(rowData3);
         tableRow.appendChild(rowData4);
+
+        tableBody.appendChild(tableRow)
     })
+
+    document.querySelectorAll('.increase-item').forEach(item => {
+        item.addEventListener('click', incrementItem)
+    })
+    document.querySelectorAll('.decrease-item').forEach(item => {
+        item.addEventListener('click', decrementItem);
+    })
+}
+
+let currPrice = 0
+
+function incrementItem() {
+    let itemToInc = this.parentNode.previousSibling.innerText;
+    console.log(itemToInc);
+
+    let incObj = cartData.find(element => element.name = itemToInc);
+    incObj.quantity += 1;
+
+    currPrice = (incObj.price * incObj.quantity - incObj.price *
+        (incObj.quantity - 1)) / (incObj.quantity - 1);
+
+    incObj.price = currPrice * incObj.quantity;
+    totalAmount();
+    cartItems();
 }
