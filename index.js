@@ -291,7 +291,7 @@ document.querySelectorAll('.add-to-cart').forEach(item => {
 let cartData = [];
 
 function addToCart() {
-    // console.log(this.parentNode.nextSibling.nextSibling);
+    console.log(this.parentNode.nextSibling.nextSibling);
     let itemToAdd = this.parentNode.nextSibling.nextSibling.innerText;
     let itemObj = foodItem.find(element => element.name == itemToAdd);
     console.log(itemObj);
@@ -372,4 +372,56 @@ function incrementItem() {
     incObj.price = currPrice * incObj.quantity;
     totalAmount();
     cartItems();
+}
+
+let flag = false
+
+function decrementItem() {
+    let itemToDec = this.parentNode.previousSibling.innerText;
+    let decObj = cartData.find(element => element.name == itemToDec);
+    let ind = cartData.indexOf(decObj)
+    if (decObj.quantity > 1) {
+        currPrice = (decObj.price * decObj.quantity - decObj * price(decObj.quantity - 1)) / decObj.quantity
+    } else {
+        document.getElementById(decObj.id).classList.remove('toggle-heart');
+        cartData.splice(ind, 1);
+        document.getElementById('cart-plus').innerHTML = ' ' + cartData.length + 'items';
+        document.getElementById('m-cart-plus').innerHTML = ' ' + cartData.length;
+
+        if (cartData.length < 1 && flag) {
+            document.getElementById('food-items').classList.toggle('food-items');
+            document.getElementById('category-list').classList.toggle('food-items');
+            // document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle');
+            document.getElementById('cart-page').classList.toggle('cart-toggle');
+            // document.getElementById('category-header').classList.toggle('toggle-category');
+            document.getElementById('checkout').classList.toggle('cart-toggle');
+            flag = false;
+            alert("Currently no item in the cart")
+        }
+    }
+    totalAmount();
+    cartItems()
+}
+
+function totalAmount() {
+    let sum = 0;
+    cartData.map(item => {
+        sum += item.price;
+    })
+    document.getElementById('total-item').innerText = 'Total Item : ' + cartData.length;
+    document.getElementById('total-price').innerText = 'Total Price : PKR ' + sum;
+}
+
+document.getElementById('cart-plus').addEventListener('click', cartToggle);
+document.getElementById('m-cart-plus').addEventListener('click', cartToggle);
+
+function cartToggle() {
+    if (cartData.length > 0) {
+        document.getElementById('food-items').classList.toggle('food-items');
+        document.getElementById('category-list').classList.toggle('food-items');
+        // document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle');
+        document.getElementById('cart-page').classList.toggle('cart-toggle');
+        // document.getElementById('category-header').classList.toggle('toggle-category');
+        document.getElementById('checkout').classList.toggle('cart-toggle');
+    }
 }
