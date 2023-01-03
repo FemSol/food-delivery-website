@@ -276,5 +276,74 @@ function categoryLists() {
 
         listCard.appendChild(listImg)
         listCard.appendChild(listName)
+
+        let cloneListCard = listCard.cloneNode(true);
+        categoryList.appendChild(listCard)
+    })
+}
+
+categoryLists();
+
+document.querySelectorAll('.add-to-cart').forEach(item => {
+    item.addEventListener('click', addToCart)
+})
+
+let cartData = [];
+
+function addToCart() {
+    // console.log(this.parentNode.nextSibling.nextSibling);
+    let itemToAdd = this.parentNode.nextSibling.nextSibling.innerText;
+    let itemObj = foodItem.find(element => element.name == itemToAdd);
+    console.log(itemObj);
+    let index = cartData.indexOf(itemObj);
+    if (index === -1) {
+        document.getElementById(itemObj.id).classList.add('toggle-heart');
+        cartData = [...cartData, itemObj];
+        console.log(cartData);
+    } else if (index > -1) {
+        alert("Added to Cart")
+    }
+
+    document.getElementById('cart-plus').innerText = ' ' + cartData.length + ' items';
+    // document.getElementById('m-cart-plus').innerText = ' ' + cartData.length;
+    totalAmount();
+    cartItems();
+}
+
+function cartItems() {
+    let tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = '';
+    cartData.map(item => {
+        let tableRow = document.createElement('tr');
+
+        let rowData1 = document.createElement('td');
+        let img = document.createElement('img');
+        img.src = item.img;
+        rowData1.appendChild(img);
+
+        let rowData2 = document.createElement('td');
+        rowData2.innerText = item.name;
+
+        let rowData3 = document.createElement('td');
+        let btn1 = document.createElement('button')
+        btn1.setAttribute('class', 'decrase-item')
+        btn1.innerHTML = '-';
+        let span = document.createElement('span')
+        span.innerText = item.quantity;
+        let btn2 = document.createElement('button')
+        btn2.setAttribute('class', "increase-item")
+        btn2.innerHTML = '+';
+
+        rowData3.appendChild(btn1)
+        rowData3.appendChild(span)
+        rowData3.appendChild(btn2)
+
+        let rowData4 = document.createElement('td')
+        rowData4.innerText = item.price;
+
+        tableRow.appendChild(rowData1);
+        tableRow.appendChild(rowData2);
+        tableRow.appendChild(rowData3);
+        tableRow.appendChild(rowData4);
     })
 }
